@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-emerald: #065F46;
+  --color-emerald-light: #059669;
+  --color-emerald-soft: #D1FAE5;
+  --color-emerald-900: #022c22;
+  --color-gold: #92700C;
+  --color-gold-bright: #CA8A04;
+  --color-gold-glow: #FEF3C7;
+  --color-ivory: #FEFDFB;
+  --color-snow: #F8FAFB;
+  --color-chalk: #FFFFFF;
+  --color-ink: #111827;
+  --color-graphite: #4B5563;
+  --color-silver: #9CA3AF;
+  --color-slate: #6B7280;
+  --color-mist: #E5E7EB;
+
+  --font-serif: "DM Serif Display", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-ivory);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-emerald-soft);
+  color: var(--color-emerald);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-snow);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-emerald-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-emerald);
+}
+
+/* Pulse glow animation for CTA buttons */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(146, 112, 12, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(146, 112, 12, 0);
+  }
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+.animate-pulse-green {
+  animation: pulse-green 2.5s ease-in-out infinite;
+}
+
+/* Glass morphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

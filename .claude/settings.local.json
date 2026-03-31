@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find '/c/Users/jp_vi/.claude/Projetos/Nova LP - Dr. Atyla Neto' -maxdepth 1 -type f -name *.json -o -name *.ts -o -name *.js)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src --no-import-alias --use-npm)",
+      "Bash(npx create-next-app@latest atyla-neto-lp --typescript --tailwind --eslint --app --src --no-import-alias --use-npm)",
+      "Bash(npm install:*)",
+      "Bash(node -e \"const lucide = require\\(''lucide-react''\\); console.log\\(''Syringe:'', !!lucide.Syringe\\); console.log\\(''Vertebrae:'', !!lucide.Vertebrae\\); console.log\\(''Spine:'', !!lucide.Spine\\); console.log\\(''Crosshair:'', !!lucide.Crosshair\\); console.log\\(''Award:'', !!lucide.Award\\); console.log\\(''Cpu:'', !!lucide.Cpu\\); console.log\\(''Bone:'', !!lucide.Bone\\);\")",
+      "Bash(node -e \"const l = require\\(''lucide-react''\\); const names = [''Syringe'',''Vertebrae'',''Spine'',''Crosshair'',''Award'',''Cpu'',''Bone'',''Shield'',''Leaf'',''Activity'',''Star'']; names.forEach\\(n => console.log\\(n + '': '' + \\(typeof l[n] !== ''undefined''\\)\\)\\)\")",
+      "Bash(node -e \"const l = require\\(''lucide-react''\\); [''Syringe'',''Vertebrae'',''Spine'',''Crosshair'',''Award'',''Cpu'',''Bone'',''Shield'',''Leaf'',''Activity'',''Star''].forEach\\(n => console.log\\(n, typeof l[n] === ''object''\\)\\)\")",
+      "Bash(node -e \"const l = require\\(''lucide-react''\\); [''SpineIcon'',''Pilcrow'',''AlignVerticalJustifyCenter'',''StretchVertical'',''Rows3''].forEach\\(n => console.log\\(n, typeof l[n] === ''object''\\)\\)\")",
+      "Bash(npx next:*)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}
