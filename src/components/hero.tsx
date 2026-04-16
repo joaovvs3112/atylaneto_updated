@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BadgeCheck, MessageCircle, ArrowDown, Award, Star, Users, Clock } from "lucide-react";
+import { BadgeCheck, MessageCircle, ArrowDown, Award, Users, Clock } from "lucide-react";
 import MagneticButton from "@/components/ui/magnetic-button";
 import AnimatedCounter from "@/components/ui/animated-counter";
 import { WA_URL } from "@/lib/data";
@@ -9,7 +9,6 @@ import { WA_URL } from "@/lib/data";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const STATS = [
-  { value: "4.9/5", label: "Avaliação dos pacientes", icon: Star },
   { value: "+1.000", label: "Pacientes atendidos", icon: Users },
   { value: "20+", label: "Anos de experiência", icon: Clock },
 ];
@@ -20,7 +19,7 @@ const subtitleWords = "Mais de 20 anos devolvendo qualidade de vida com tratamen
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Background — left ivory, right emerald diagonal */}
+      {/* Background — left ivory, right emerald diagonal (desktop) */}
       <div className="absolute inset-0 bg-ivory" />
       <div
         className="absolute inset-0 bg-gradient-to-br from-emerald via-emerald to-emerald-900 hidden lg:block"
@@ -112,7 +111,7 @@ export default function Hero() {
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 1, delay: 1, ease }}
                   className="block h-[3px] bg-gold mt-2 origin-left"
-                  style={{ maxWidth: "280px" }}
+                  style={{ maxWidth: "200px" }}
                 />
               </motion.h1>
             </div>
@@ -139,7 +138,7 @@ export default function Hero() {
             </div>
 
             {/* Buttons — enter from bottom with stagger */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -170,38 +169,41 @@ export default function Hero() {
               </motion.div>
             </div>
 
-            {/* Stats — enter from left with stagger + animated counters */}
-            <div className="flex gap-8">
+            {/* Stats — glassmorphism card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 1.5, ease }}
+              className="inline-flex gap-6 sm:gap-10 bg-white/15 lg:bg-white/60 backdrop-blur-xl border border-white/20 lg:border-white/60 rounded-2xl px-6 sm:px-8 py-4 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)]"
+            >
               {STATS.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 1.5 + i * 0.15, ease }}
-                  className="group cursor-default"
-                >
-                  <div className="flex items-center gap-2">
-                    <motion.div
-                      initial={{ scale: 0, rotate: -90 }}
-                      animate={{ scale: 1, rotate: 0 }}
-                      transition={{ duration: 0.5, delay: 1.7 + i * 0.15, type: "spring", stiffness: 300 }}
-                    >
-                      <stat.icon size={16} className="text-gold" />
-                    </motion.div>
+                <div key={stat.label} className="flex items-center gap-3 group cursor-default">
+                  <motion.div
+                    initial={{ scale: 0, rotate: -90 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.5, delay: 1.7 + i * 0.15, type: "spring", stiffness: 300 }}
+                    className="w-10 h-10 rounded-xl bg-white/20 lg:bg-emerald-soft flex items-center justify-center flex-shrink-0"
+                  >
+                    <stat.icon size={18} className="text-gold-bright lg:text-emerald" />
+                  </motion.div>
+                  <div>
                     <AnimatedCounter
                       value={stat.value}
-                      className="font-serif text-2xl sm:text-3xl text-white lg:text-ink group-hover:scale-105 transition-transform duration-300 inline-block"
+                      className="font-serif text-xl sm:text-2xl text-white lg:text-ink group-hover:scale-105 transition-transform duration-300 inline-block leading-tight"
                     />
+                    <p className="text-white/60 lg:text-slate text-[11px] sm:text-xs">
+                      {stat.label}
+                    </p>
                   </div>
-                  <p className="text-white/50 lg:text-slate text-xs sm:text-sm mt-0.5">
-                    {stat.label}
-                  </p>
-                </motion.div>
+                  {i < STATS.length - 1 && (
+                    <div className="hidden sm:block w-px h-8 bg-white/20 lg:bg-mist/50 ml-4" />
+                  )}
+                </div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
-          {/* Right — Photo placeholder */}
+          {/* Right — Photo (desktop only) */}
           <div className="lg:col-span-6 xl:col-span-5 relative hidden lg:flex justify-center">
             {/* Gold offset frame — slides in from right */}
             <motion.div
@@ -216,20 +218,14 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 1.1, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.3, ease }}
-              className="relative w-full max-w-[400px] aspect-[3/4] rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-soft via-emerald-soft/50 to-emerald/10 group"
+              className="relative w-full max-w-[400px] aspect-[3/4] rounded-3xl overflow-hidden group"
             >
-              {/* Animated shimmer effect on placeholder */}
-              <motion.div
-                animate={{ x: ["-100%", "200%"] }}
-                transition={{ duration: 3, repeat: Infinity, repeatDelay: 4, ease: "easeInOut" }}
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+              <img
+                src="/dratyla-hero.jpg"
+                alt="Dr. Atyla Neto em seu consultório"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
               />
-              {/* Placeholder silhouette */}
-              <div className="absolute inset-0 flex items-end justify-center">
-                <div className="w-48 h-64 bg-emerald/15 rounded-t-full" />
-              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-emerald/20 via-transparent to-transparent" />
-              <div className="absolute inset-0 group-hover:scale-[1.02] transition-transform duration-500" />
             </motion.div>
 
             {/* Floating badge — bounces in from below */}
@@ -265,39 +261,6 @@ export default function Hero() {
               </motion.div>
             </motion.div>
 
-            {/* New: second floating badge — top right */}
-            <motion.div
-              initial={{ opacity: 0, x: 30, scale: 0.6 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{
-                duration: 0.8,
-                delay: 1.8,
-                type: "spring",
-                stiffness: 200,
-                damping: 15,
-              }}
-              className="absolute -top-2 -right-6 glass rounded-2xl px-4 py-3 shadow-lg"
-            >
-              <motion.div
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="flex items-center gap-2"
-              >
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 2 + i * 0.1, type: "spring", stiffness: 400 }}
-                    >
-                      <Star size={12} className="text-gold fill-gold" />
-                    </motion.div>
-                  ))}
-                </div>
-                <p className="text-ink font-semibold text-xs">4.9/5</p>
-              </motion.div>
-            </motion.div>
           </div>
         </div>
       </div>

@@ -14,88 +14,106 @@ const MAPS_LINK =
 
 export default function LocationMap() {
   return (
-    <section className="bg-ivory py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+    <section
+      id="localizacao"
+      className="relative overflow-hidden"
+      style={{
+        background: "linear-gradient(180deg, #044D38 0%, #022c22 100%)",
+      }}
+    >
+      {/* Hexagonal pattern overlay — same as differentials & CTA */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='52' viewBox='0 0 60 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E")`,
+          backgroundSize: "60px 52px",
+        }}
+      />
+
+      {/* Content — heading + info card */}
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-6 lg:pt-10 pb-10">
         <SectionHeading
           badge="LOCALIZAÇÃO"
           title="Onde Estamos"
           subtitle="Clínica São Clemente — Vila Velha, ES"
+          light
         />
 
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-          {/* Map */}
-          <motion.div
-            variants={fadeRight(0)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-            className="lg:col-span-8 rounded-2xl overflow-hidden border border-mist shadow-[0_8px_30px_rgba(0,0,0,0.04)] min-h-[400px]"
-          >
-            <iframe
-              src={MAPS_EMBED_URL}
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: "400px" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Localização da Clínica São Clemente"
-            />
-          </motion.div>
-
-          {/* Info card */}
-          <motion.div
-            variants={fadeLeft(0.15)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-            className="lg:col-span-4 flex flex-col gap-6"
-          >
-            {/* Address card */}
-            <div className="bg-chalk rounded-2xl border border-mist p-7 flex-1">
-              <div className="w-12 h-12 bg-emerald-soft rounded-xl flex items-center justify-center mb-5">
-                <MapPin size={22} className="text-emerald" />
+        {/* Info card — centered above the map */}
+        <motion.div
+          variants={fadeUp(0.15)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          className="max-w-xl mx-auto"
+        >
+          <div className="glass-dark rounded-2xl p-7 border border-white/10">
+            <div className="flex items-start gap-5 mb-5">
+              <div className="w-12 h-12 bg-gold-glow rounded-xl flex items-center justify-center flex-shrink-0">
+                <MapPin size={22} className="text-gold" />
               </div>
-              <h3 className="font-serif text-ink text-lg mb-1">
-                Clínica São Clemente
-              </h3>
-              <p className="text-graphite text-sm leading-relaxed mb-4">
-                R. Carolina Leal, 46 — Jaburuna
-                <br />
-                Vila Velha — ES, 29100-510
-              </p>
-
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-3">
-                  <Clock size={16} className="text-emerald-light" />
-                  <p className="text-graphite text-sm">
-                    Seg–Sex, 8h às 18h
-                  </p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone size={16} className="text-emerald-light" />
-                  <a
-                    href={`tel:${PHONE_TEL}`}
-                    className="text-graphite text-sm hover:text-emerald transition-colors"
-                  >
-                    {PHONE}
-                  </a>
-                </div>
+              <div>
+                <h3 className="font-serif text-white text-lg mb-1">
+                  Clínica São Clemente
+                </h3>
+                <p className="text-white/60 text-sm leading-relaxed">
+                  R. Carolina Leal, 46 — Jaburuna
+                  <br />
+                  Vila Velha — ES, 29100-510
+                </p>
               </div>
-
-              <a
-                href={MAPS_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald hover:bg-emerald-light text-white font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg text-sm"
-              >
-                <Navigation size={14} />
-                Abrir no Google Maps
-              </a>
             </div>
-          </motion.div>
-        </div>
+
+            <div className="flex flex-wrap gap-6 mb-6">
+              <div className="flex items-center gap-3">
+                <Clock size={16} className="text-gold" />
+                <p className="text-white/70 text-sm">
+                  Seg–Sex, 14h às 18h
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone size={16} className="text-gold" />
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  className="text-white/70 text-sm hover:text-white transition-colors"
+                >
+                  {PHONE}
+                </a>
+              </div>
+            </div>
+
+            <a
+              href={MAPS_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-bright text-white font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg text-sm"
+            >
+              <Navigation size={14} />
+              Abrir no Google Maps
+            </a>
+          </div>
+        </motion.div>
       </div>
+
+      {/* Map — full width, edge to edge */}
+      <motion.div
+        variants={fadeUp(0.1)}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportConfig}
+        className="w-full"
+      >
+        <iframe
+          src={MAPS_EMBED_URL}
+          width="100%"
+          height="450"
+          style={{ border: 0, display: "block" }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Localização da Clínica São Clemente"
+        />
+      </motion.div>
     </section>
   );
 }

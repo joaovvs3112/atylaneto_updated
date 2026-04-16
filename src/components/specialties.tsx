@@ -80,18 +80,9 @@ export default function Specialties() {
               <h3 className="font-serif text-ink text-lg mb-2 transition-colors duration-400 group-hover:text-gold">
                 {spec.title}
               </h3>
-              <p className="text-graphite text-sm leading-relaxed mb-4">
+              <p className="text-graphite text-sm leading-relaxed">
                 {spec.description}
               </p>
-
-              {/* Hover link */}
-              <div className="flex items-center gap-1 text-emerald text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                Saiba mais
-                <ArrowRight
-                  size={14}
-                  className="group-hover:translate-x-1 transition-transform duration-300"
-                />
-              </div>
             </motion.div>
           ))}
         </div>
@@ -111,7 +102,7 @@ export default function Specialties() {
             className="inline-flex items-center gap-2 bg-emerald hover:bg-emerald-light text-white font-medium px-7 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg text-sm"
           >
             <MessageCircle size={16} />
-            Fale com o Dr. Atyla
+            Agendar Consulta
           </MagneticButton>
         </motion.div>
       </div>

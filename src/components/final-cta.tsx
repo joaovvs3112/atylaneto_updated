@@ -1,14 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, FileText } from "lucide-react";
+import { MessageCircle, Phone } from "lucide-react";
 import MagneticButton from "@/components/ui/magnetic-button";
 import { WA_URL } from "@/lib/data";
 import { fadeUp, viewportConfig } from "@/lib/animations";
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden bg-gradient-to-br from-emerald via-emerald to-emerald-900">
+    <section
+      className="relative pt-24 lg:pt-32 pb-12 lg:pb-16 overflow-hidden"
+      style={{
+        background: "linear-gradient(180deg, #065F46 0%, #044D38 100%)",
+      }}
+    >
+      {/* Wave divider — top edge for smooth transition */}
+      <div className="absolute top-0 left-0 right-0 -translate-y-[99%]">
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 120V60C240 20 480 80 720 60C960 40 1200 80 1440 50V120H0Z"
+            fill="#065F46"
+          />
+          <path
+            d="M0 120V80C360 40 720 100 1080 70C1260 55 1380 65 1440 60V120H0Z"
+            fill="#065F46"
+            fillOpacity="0.5"
+          />
+        </svg>
+      </div>
+
+      {/* Hexagonal pattern overlay — same as differentials */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='52' viewBox='0 0 60 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E")`,
+          backgroundSize: "60px 52px",
+        }}
+      />
+
       {/* Decorative blobs */}
       <div className="absolute top-10 left-[10%] w-[300px] h-[300px] bg-gold/8 rounded-full blur-[120px]" />
       <div className="absolute bottom-10 right-[15%] w-[250px] h-[250px] bg-emerald-light/10 rounded-full blur-[100px]" />
@@ -53,12 +88,12 @@ export default function FinalCTA() {
             Agendar pelo WhatsApp
           </MagneticButton>
           <MagneticButton
-            href="#contato"
+            href="tel:+552733207150"
             className="inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white font-medium px-8 py-4 rounded-full transition-all duration-300 hover:bg-white/10 hover:border-white/50 text-base"
             strength={3}
           >
-            <FileText size={18} />
-            Preencher Formulário
+            <Phone size={18} />
+            Ligue Diretamente
           </MagneticButton>
         </motion.div>
 
@@ -69,7 +104,7 @@ export default function FinalCTA() {
           viewport={viewportConfig}
           className="text-white/60 text-sm"
         >
-          Consultas em Vitória e Vila Velha, ES | Seg-Sex 8h-18h
+          Consultas em Vila Velha, ES | Seg-Sex 14h-18h
         </motion.p>
       </div>
     </section>

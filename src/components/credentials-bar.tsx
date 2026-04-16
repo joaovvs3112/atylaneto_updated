@@ -14,7 +14,7 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function CredentialsBar() {
   return (
-    <section className="bg-snow py-12 lg:py-16">
+    <section className="hidden lg:block bg-snow py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <motion.p
           initial={{ opacity: 0 }}

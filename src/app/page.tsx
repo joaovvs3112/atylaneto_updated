@@ -5,7 +5,6 @@ import About from "@/components/about";
 import Specialties from "@/components/specialties";
 import Differentials from "@/components/differentials";
 import Testimonials from "@/components/testimonials";
-import ContactForm from "@/components/contact-form";
 import LocationMap from "@/components/location-map";
 import FinalCTA from "@/components/final-cta";
 import Footer from "@/components/footer";
@@ -25,11 +24,8 @@ export default function Home() {
       <Differentials />
       <SectionDivider />
       <Testimonials />
-      <SectionDivider />
-      <ContactForm />
-      <SectionDivider />
-      <LocationMap />
       <FinalCTA />
+      <LocationMap />
       <Footer />
       <FloatingWhatsApp />
     </>

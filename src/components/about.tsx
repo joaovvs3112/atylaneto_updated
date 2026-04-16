@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   GraduationCap,
   Building2,
@@ -23,12 +24,12 @@ const formation = [
   {
     icon: Building2,
     title: "Especialização em Ortopedia",
-    desc: "Hospital Naval Marcílio Dias — RJ",
+    desc: "Hospital das Clínicas — SP",
   },
   {
     icon: Building,
     title: "Residência Médica",
-    desc: "Hospital das Clínicas — SP",
+    desc: "Hospital Naval Marcílio Dias — RJ",
   },
 ];
 
@@ -38,7 +39,21 @@ const differentials = [
   "Foco em resultados reais e qualidade de vida",
 ];
 
+const mobilePhotos = [
+  { src: "/dratyla-hero.jpg", alt: "Dr. Atyla Neto em seu consultório" },
+  { src: "/dratyla-atendimento.jpg", alt: "Dr. Atyla Neto realizando atendimento" },
+];
+
 export default function About() {
+  const [photoIndex, setPhotoIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPhotoIndex((prev) => (prev + 1) % mobilePhotos.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="sobre" className="bg-ivory py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
@@ -60,18 +75,43 @@ export default function About() {
               className="absolute -top-4 -left-4 w-[calc(100%-16px)] aspect-[3/4] border-2 border-gold/30 rounded-2xl transition-all duration-500 hover:translate-x-1 hover:translate-y-1"
             />
 
-            {/* Photo placeholder */}
-            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br from-emerald-soft via-emerald-soft/50 to-emerald/10">
-              {/* Shimmer effect */}
-              <motion.div
-                animate={{ x: ["-100%", "200%"] }}
-                transition={{ duration: 3, repeat: Infinity, repeatDelay: 5, ease: "easeInOut" }}
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-12"
+            {/* Photo — static on desktop */}
+            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden hidden lg:block">
+              <img
+                src="/dratyla-atendimento.jpg"
+                alt="Dr. Atyla Neto realizando atendimento"
+                className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 flex items-end justify-center">
-                <div className="w-48 h-64 bg-emerald/15 rounded-t-full" />
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald/15 via-transparent to-transparent" />
+            </div>
+
+            {/* Photo slideshow — mobile only */}
+            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden lg:hidden">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={photoIndex}
+                  src={mobilePhotos[photoIndex].src}
+                  alt={mobilePhotos[photoIndex].alt}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </AnimatePresence>
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald/15 via-transparent to-transparent" />
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                {mobilePhotos.map((_, i) => (
+                  <div
+                    key={i}
+                    className={`h-2 rounded-full transition-all duration-500 ${
+                      i === photoIndex
+                        ? "bg-white w-8 shadow-[0_0_8px_rgba(255,255,255,0.4)]"
+                        : "bg-white/50 w-2"
+                    }`}
+                  />
+                ))}
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-emerald/20 via-transparent to-transparent" />
             </div>
 
             {/* Quote — fades in from below */}
@@ -93,7 +133,7 @@ export default function About() {
               </motion.span>
               <p className="font-serif text-graphite italic text-base leading-relaxed">
                 Cada paciente é único. Meu compromisso é encontrar a melhor
-                solução para a sua realidade.
+                solução para a sua realidade.&rdquo;
               </p>
             </motion.div>
           </motion.div>
@@ -133,12 +173,10 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.5, ease }}
               className="text-graphite text-base leading-relaxed mb-8 max-w-xl"
             >
-              O Dr. Atyla Neto é ortopedista e traumatologista com mais de 20
-              anos de experiência. Sua abordagem combina conhecimento técnico
-              aprofundado com escuta ativa, garantindo que cada paciente receba
-              um plano de tratamento verdadeiramente personalizado. Atua em
-              Vitória e Vila Velha, ES, com foco em resultados que devolvem
-              qualidade de vida.
+              &ldquo;Com mais de 20 anos de experiência, transformo vidas em
+              Vitória e Vila Velha-ES, oferecendo tratamentos de ponta para
+              dores no joelho e dor crônica com abordagens modernas baseadas
+              em evidências científicas.&rdquo;
             </motion.p>
 
             {/* Formation cards — staggered from different angles */}
@@ -151,7 +189,7 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.6 + i * 0.12, ease }}
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                  className="p-4 rounded-xl transition-all duration-300 hover:bg-snow hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] cursor-default"
+                  className="p-4 rounded-xl transition-all duration-300 bg-white/50 backdrop-blur-md border border-white/60 shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_12px_32px_rgba(0,0,0,0.08)] cursor-default"
                 >
                   <motion.div
                     initial={{ scale: 0, rotate: -30 }}
@@ -188,9 +226,9 @@ export default function About() {
                       stiffness: 400,
                       damping: 12,
                     }}
-                    className="w-5 h-5 rounded-full bg-gold-glow flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-115 transition-transform duration-300"
+                    className="w-5 h-5 rounded-full bg-emerald-soft flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-115 transition-transform duration-300"
                   >
-                    <Check size={12} className="text-gold" />
+                    <Check size={12} className="text-emerald" />
                   </motion.div>
                   <p className="text-graphite text-sm">{item}</p>
                 </motion.div>
@@ -210,7 +248,7 @@ export default function About() {
                 className="inline-flex items-center gap-2 bg-emerald hover:bg-emerald-light text-white font-medium px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg text-sm"
               >
                 <MessageCircle size={16} />
-                Fale com o Dr. Atyla
+                Agendar Consulta
               </MagneticButton>
             </motion.div>
           </motion.div>
