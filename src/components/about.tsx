@@ -120,20 +120,10 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6, ease }}
-              className="mt-6 relative pl-8"
+              className="mt-6"
             >
-              <motion.span
-                initial={{ scale: 0, rotate: -20 }}
-                whileInView={{ scale: 1, rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.8, type: "spring", stiffness: 300 }}
-                className="absolute left-0 top-0 font-serif text-4xl text-gold leading-none inline-block"
-              >
-                &ldquo;
-              </motion.span>
               <p className="font-serif text-graphite italic text-base leading-relaxed">
-                Cada paciente é único. Meu compromisso é encontrar a melhor
-                solução para a sua realidade.&rdquo;
+                Alívio da dor com tratamento certo para o seu caso.
               </p>
             </motion.div>
           </motion.div>

@@ -56,8 +56,8 @@ export default function FinalCTA() {
           viewport={viewportConfig}
           className="font-serif text-white text-3xl sm:text-4xl lg:text-5xl leading-tight mb-4"
         >
-          Sua Qualidade de Vida Começa com uma{" "}
-          <span className="text-gold-bright italic">Consulta.</span>
+          Volte a viver sem limitações.{" "}
+          <span className="text-gold-bright italic">Agende agora.</span>
         </motion.h2>
 
         <motion.p

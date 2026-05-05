@@ -13,8 +13,10 @@ const STATS = [
   { value: "20+", label: "Anos de experiência", icon: Clock },
 ];
 
-// Word-by-word reveal for subtitle
-const subtitleWords = "Mais de 20 anos devolvendo qualidade de vida com tratamentos de precisão em Vitória e Vila Velha, ES.".split(" ");
+const subtitleLine1 = "Ortopedista especialista em dor, com abordagem moderna e personalizada.";
+const subtitleLine2 = "Mais de 1.000 pacientes tratados com protocolos atualizados e focados em resultado.";
+
+const specialtyTags = ["Medicina Regenerativa", "Tratamento com Canabidiol"];
 
 export default function Hero() {
   return (
@@ -83,59 +85,65 @@ export default function Hero() {
               >
                 <BadgeCheck size={14} />
               </motion.div>
-              CRM 7743 | RQE 6402 — Especialista em Ortopedia
+              CRM 7743 | RQE 6402 — Dor Crônica & Joelho
             </motion.div>
 
             <div className="mb-6">
-              {/* "Ortopedia de" — drops in from above */}
-              <motion.p
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, ease }}
-                className="text-white/70 lg:text-graphite text-lg sm:text-xl font-light mb-1"
-              >
-                Ortopedia de
-              </motion.p>
-
-              {/* "Excelência." — scales up dramatically */}
+              {/* H1 — scales up dramatically */}
               <motion.h1
                 initial={{ opacity: 0, scale: 0.7, y: 30 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.9, delay: 0.35, ease }}
-                className="font-serif text-white lg:text-ink text-5xl sm:text-6xl xl:text-7xl leading-[1.05]"
+                transition={{ duration: 0.9, delay: 0.2, ease }}
+                className="font-serif text-white lg:text-ink text-4xl sm:text-5xl xl:text-6xl leading-[1.1]"
               >
-                Excelência.
+                Especialista em Dores no Joelho e Dor Crônica
                 {/* Gold underline — draws in */}
                 <motion.span
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 1, delay: 1, ease }}
-                  className="block h-[3px] bg-gold mt-2 origin-left"
+                  className="block h-[3px] bg-gold mt-3 origin-left"
                   style={{ maxWidth: "200px" }}
                 />
               </motion.h1>
             </div>
 
-            {/* Subtitle — word by word reveal */}
-            <div className="max-w-[480px] mb-8">
-              <p className="text-white/70 lg:text-graphite text-base sm:text-lg leading-relaxed">
-                {subtitleWords.map((word, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.4,
-                      delay: 0.7 + i * 0.04,
-                      ease,
-                    }}
-                    className="inline-block mr-[0.3em]"
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </p>
+            {/* Subtitle — two lines */}
+            <div className="max-w-[480px] mb-5">
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7, ease }}
+                className="text-white/80 lg:text-graphite text-base sm:text-lg leading-relaxed mb-1"
+              >
+                {subtitleLine1}
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.85, ease }}
+                className="text-white/60 lg:text-slate text-sm sm:text-base leading-relaxed"
+              >
+                {subtitleLine2}
+              </motion.p>
             </div>
+
+            {/* Specialty tags */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.0, ease }}
+              className="flex flex-wrap gap-2 mb-8"
+            >
+              {specialtyTags.map((tag, i) => (
+                <span
+                  key={tag}
+                  className="text-xs font-medium px-3 py-1.5 rounded-full border border-white/20 text-white/80 lg:border-emerald/30 lg:text-emerald lg:bg-emerald-soft/60 bg-white/10"
+                >
+                  {tag}
+                </span>
+              ))}
+            </motion.div>
 
             {/* Buttons — enter from bottom with stagger */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
