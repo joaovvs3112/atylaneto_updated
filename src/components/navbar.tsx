@@ -91,7 +91,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className={`hidden lg:inline-flex items-center text-sm font-medium rounded-xl transition-all duration-300 ${
                 scrolled
-                  ? "bg-emerald hover:bg-emerald-light text-white px-5 py-2 shadow-sm hover:shadow-md"
+                  ? "bg-emerald hover:bg-emerald-light text-[#ffffff] px-5 py-2 shadow-sm hover:shadow-md"
                   : "bg-gold-bright hover:bg-gold text-white px-5 py-2.5 hover:shadow-[0_0_0_8px_rgba(202,138,4,0.12)]"
               }`}
             >
@@ -142,7 +142,7 @@ export default function Navbar() {
                   href={WA_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-emerald hover:bg-emerald-light text-white text-center font-medium px-5 py-3 rounded-xl mt-3 transition-colors"
+                  className="bg-emerald hover:bg-emerald-light text-[#ffffff] text-center font-semibold px-5 py-3 rounded-xl mt-3 transition-colors"
                 >
                   Agendar Consulta
                 </a>

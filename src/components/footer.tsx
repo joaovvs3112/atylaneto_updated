@@ -11,10 +11,10 @@ export default function Footer() {
             <p className="font-serif text-white text-xl mb-1">
               DR. ATYLA NETO
             </p>
-            <p className="text-white/50 text-[11px] font-medium tracking-[0.25em] uppercase mb-4">
+            <p className="text-white/70 text-[11px] font-medium tracking-[0.25em] uppercase mb-4">
               ORTOPEDIA & TRAUMATOLOGIA
             </p>
-            <p className="text-white/60 text-sm leading-relaxed mb-5 max-w-xs">
+            <p className="text-white/80 text-sm leading-relaxed mb-5 max-w-xs">
               Cuidado especializado em ortopedia com mais de 20 anos de
               experiência, devolvendo qualidade de vida aos pacientes.
             </p>
@@ -22,7 +22,7 @@ export default function Footer() {
               href={WA_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-gold hover:text-gold-bright text-sm font-medium transition-colors"
+              className="inline-flex items-center gap-2 text-gold-bright hover:text-white text-sm font-medium transition-colors"
             >
               <MessageCircle size={14} />
               Agendar pelo WhatsApp
@@ -35,7 +35,7 @@ export default function Footer() {
             <div className="space-y-3">
               <a
                 href="#"
-                className="block text-white/60 hover:text-white/80 text-sm transition-colors"
+                className="block text-white/80 hover:text-white text-sm transition-colors"
               >
                 Início
               </a>
@@ -43,7 +43,7 @@ export default function Footer() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="block text-white/60 hover:text-white/80 text-sm transition-colors"
+                  className="block text-white/80 hover:text-white text-sm transition-colors"
                 >
                   {link.label}
                 </a>
@@ -56,23 +56,23 @@ export default function Footer() {
             <p className="text-white font-medium text-sm mb-5">Contato</p>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <MapPin size={16} className="text-white/50 mt-0.5" />
-                <p className="text-white/60 text-sm">
+                <MapPin size={16} className="text-white/70 mt-0.5" />
+                <p className="text-white/80 text-sm">
                   Vitória e Vila Velha, ES
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <Phone size={16} className="text-white/50 mt-0.5" />
+                <Phone size={16} className="text-white/70 mt-0.5" />
                 <a
                   href={`tel:${PHONE_TEL}`}
-                  className="text-white/60 hover:text-white/80 text-sm transition-colors"
+                  className="text-white/80 hover:text-white text-sm transition-colors"
                 >
                   {PHONE}
                 </a>
               </div>
               <div className="flex items-start gap-3">
-                <Clock size={16} className="text-white/50 mt-0.5" />
-                <p className="text-white/60 text-sm">
+                <Clock size={16} className="text-white/70 mt-0.5" />
+                <p className="text-white/80 text-sm">
                   Segunda a Sexta, 14h às 18h
                 </p>
               </div>
@@ -82,7 +82,7 @@ export default function Footer() {
 
         {/* Divider + Copyright */}
         <div className="border-t border-white/10 pt-8">
-          <p className="text-white/50 text-xs text-center">
+          <p className="text-white/60 text-xs text-center">
             © 2026 Dr. Atyla Neto — CRM {CRM} | RQE {RQE} — Todos os
             direitos reservados
           </p>

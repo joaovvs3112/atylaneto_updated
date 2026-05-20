@@ -156,7 +156,7 @@ export default function Hero() {
                   href={WA_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-emerald lg:bg-emerald-light lg:text-white hover:bg-emerald hover:text-white font-medium px-7 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg text-sm sm:text-base"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-emerald lg:bg-emerald-light lg:text-[#ffffff] hover:bg-emerald hover:text-[#ffffff] font-semibold px-7 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg text-sm sm:text-base"
                 >
                   <MessageCircle size={18} />
                   Agendar pelo WhatsApp

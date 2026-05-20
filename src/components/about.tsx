@@ -235,7 +235,7 @@ export default function About() {
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald-light hover:bg-emerald text-white font-medium px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg text-sm"
+                className="inline-flex items-center gap-2 bg-emerald-light hover:bg-emerald text-[#ffffff] font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg text-sm"
               >
                 <MessageCircle size={16} />
                 Agendar Consulta
