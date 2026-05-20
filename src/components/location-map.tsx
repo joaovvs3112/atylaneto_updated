@@ -67,7 +67,7 @@ export default function LocationMap() {
             <div className="flex flex-wrap gap-6 mb-6">
               <div className="flex items-center gap-3">
                 <Clock size={16} className="text-gold" />
-                <p className="text-white/70 text-sm">
+                <p className="text-white/90 text-sm">
                   Seg–Sex, 14h às 18h
                 </p>
               </div>
@@ -75,7 +75,7 @@ export default function LocationMap() {
                 <Phone size={16} className="text-gold" />
                 <a
                   href={`tel:${PHONE_TEL}`}
-                  className="text-white/70 text-sm hover:text-white transition-colors"
+                  className="text-white/90 text-sm hover:text-white transition-colors"
                 >
                   {PHONE}
                 </a>
@@ -86,7 +86,7 @@ export default function LocationMap() {
               href={MAPS_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-bright text-white font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg text-sm"
+              className="inline-flex items-center gap-2 bg-gold-bright hover:bg-gold text-white font-medium px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg text-sm"
             >
               <Navigation size={14} />
               Abrir no Google Maps

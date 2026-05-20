@@ -82,14 +82,14 @@ export default function FinalCTA() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-bright text-white font-medium px-8 py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_40px_rgba(146,112,12,0.4)] text-base animate-pulse-glow"
+            className="inline-flex items-center justify-center gap-2 bg-gold-bright hover:bg-gold text-white font-medium px-8 py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_40px_rgba(202,138,4,0.5)] text-base animate-pulse-glow"
           >
             <MessageCircle size={18} />
             Agendar pelo WhatsApp
           </MagneticButton>
           <MagneticButton
             href="tel:+552733207150"
-            className="inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white font-medium px-8 py-4 rounded-full transition-all duration-300 hover:bg-white/10 hover:border-white/50 text-base"
+            className="inline-flex items-center justify-center gap-2 border-2 border-white/60 text-white font-medium px-8 py-4 rounded-full transition-all duration-300 hover:bg-white/15 hover:border-white/80 text-base"
             strength={3}
           >
             <Phone size={18} />

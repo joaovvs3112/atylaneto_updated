@@ -92,7 +92,7 @@ export default function Navbar() {
               className={`hidden lg:inline-flex items-center text-sm font-medium rounded-xl transition-all duration-300 ${
                 scrolled
                   ? "bg-emerald hover:bg-emerald-light text-white px-5 py-2 shadow-sm hover:shadow-md"
-                  : "bg-gold hover:bg-gold-bright text-white px-5 py-2.5 hover:shadow-[0_0_0_8px_rgba(146,112,12,0.08)]"
+                  : "bg-gold-bright hover:bg-gold text-white px-5 py-2.5 hover:shadow-[0_0_0_8px_rgba(202,138,4,0.12)]"
               }`}
             >
               Agendar Consulta

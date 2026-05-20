@@ -99,7 +99,7 @@ export default function Specialties() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-emerald hover:bg-emerald-light text-white font-medium px-7 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg text-sm"
+            className="inline-flex items-center gap-2 bg-emerald-light hover:bg-emerald text-white font-medium px-7 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg text-sm"
           >
             <MessageCircle size={16} />
             Agendar Consulta

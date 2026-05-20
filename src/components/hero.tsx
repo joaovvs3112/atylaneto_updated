@@ -69,7 +69,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 min-h-screen flex items-center">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full pt-24 pb-16 lg:py-0">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full pt-24 pb-16 lg:pt-28 lg:pb-12">
           {/* Left — Text */}
           <div className="lg:col-span-6 xl:col-span-7 z-10">
             {/* Badge — slides in from left */}
@@ -156,7 +156,7 @@ export default function Hero() {
                   href={WA_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-emerald lg:bg-emerald lg:text-white hover:bg-emerald-light hover:text-white font-medium px-7 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg text-sm sm:text-base"
+                  className="inline-flex items-center justify-center gap-2 bg-white text-emerald lg:bg-emerald-light lg:text-white hover:bg-emerald hover:text-white font-medium px-7 py-3.5 rounded-full transition-all duration-300 hover:shadow-lg text-sm sm:text-base"
                 >
                   <MessageCircle size={18} />
                   Agendar pelo WhatsApp
