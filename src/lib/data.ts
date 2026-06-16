@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 export const WA_URL =
-  "https://wa.me/5527998230873?text=Olá, gostaria de marcar uma consulta com o Dr. Atyla Neto";
+  "https://api.whatsapp.com/send/?phone=5527998230873&text=Ol%C3%A1%2C+gostaria+de+marcar+uma+consulta+com+o+Dr.+Atyla+Neto&type=phone_number&app_absent=0";
 export const PHONE = "(27) 99823-0873";
 export const PHONE_TEL = "+5527998230873";
 export const CRM = "7743";
