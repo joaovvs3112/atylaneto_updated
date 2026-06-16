@@ -89,7 +89,7 @@ export default function FinalCTA() {
           </MagneticButton>
           <MagneticButton
             href="tel:+552733207150"
-            className="inline-flex items-center justify-center gap-2 border-2 border-white/60 text-white font-medium px-8 py-4 rounded-full transition-all duration-300 hover:bg-white/15 hover:border-white/80 text-base"
+            className="inline-flex items-center justify-center gap-2 border-2 border-white/70 text-[#ffffff] font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:bg-white/15 hover:border-white text-base"
             strength={3}
           >
             <Phone size={18} />
